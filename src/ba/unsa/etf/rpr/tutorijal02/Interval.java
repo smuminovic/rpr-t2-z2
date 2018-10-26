@@ -56,6 +56,10 @@ public class Interval {
     public boolean isIn(double tacka) {
         if (this.getPocetnaPripada() && tacka >= this.getPocetnaTacka() && this.getKrajnjaPripada() && tacka <= this.getKrajnjaTacka())
             return true;
+        if (this.getPocetnaPripada() && tacka >= this.getPocetnaTacka() && !this.getKrajnjaPripada() && tacka < this.getKrajnjaTacka())
+            return true;
+        if (!this.getPocetnaPripada() && tacka > this.getPocetnaTacka() && this.getKrajnjaPripada() && tacka <= this.getKrajnjaTacka())
+            return true;
         else if (tacka > this.getPocetnaTacka() && tacka < this.getKrajnjaTacka())
             return true;
         else
@@ -108,8 +112,8 @@ public class Interval {
             presjek.setKrajnjaTacka(i.getKrajnjaTacka());
             presjek.setKrajnjaPripada(i.getKrajnjaPripada());
         } else if (this.getKrajnjaTacka() < i.getKrajnjaTacka()) {
-            presjek.setKrajnjaTacka(i.getKrajnjaTacka());
-            presjek.setKrajnjaPripada(i.getKrajnjaPripada());
+            presjek.setKrajnjaTacka(this.getKrajnjaTacka());
+            presjek.setKrajnjaPripada(this.getKrajnjaPripada());
         }
         return presjek;
     }
@@ -128,6 +132,9 @@ public class Interval {
         interval += this.getKrajnjaTacka();
         if (this.getKrajnjaPripada()) interval += "]";
         else interval += ")";
+        if (this.getPocetnaTacka() == 0 && this.getKrajnjaTacka() == 0) {
+            interval = "()";
+        }
         return interval;
     }
 
