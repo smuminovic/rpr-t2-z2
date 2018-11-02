@@ -103,14 +103,14 @@ public class Interval {
         }
         //krajnja tacka intervala presjek
         if (this.getKrajnjaPripada() && i.getKrajnjaPripada() && this.getKrajnjaTacka() >= i.getKrajnjaTacka()) {
-            presjek.setKrajnjaTacka(this.getKrajnjaTacka());
-            presjek.setKrajnjaPripada(this.getKrajnjaPripada());
-        } else if (this.getKrajnjaTacka() > i.getKrajnjaTacka()) {
-            presjek.setKrajnjaTacka(this.getKrajnjaTacka());
-            presjek.setKrajnjaPripada(this.getKrajnjaPripada());
-        } else if (this.getKrajnjaPripada() && i.getKrajnjaPripada() && this.getKrajnjaTacka() <= i.getKrajnjaTacka()) {
             presjek.setKrajnjaTacka(i.getKrajnjaTacka());
             presjek.setKrajnjaPripada(i.getKrajnjaPripada());
+        } else if (this.getKrajnjaTacka() > i.getKrajnjaTacka()) {
+            presjek.setKrajnjaTacka(i.getKrajnjaTacka());
+            presjek.setKrajnjaPripada(i.getKrajnjaPripada());
+        } else if (this.getKrajnjaPripada() && i.getKrajnjaPripada() && this.getKrajnjaTacka() <= i.getKrajnjaTacka()) {
+            presjek.setKrajnjaTacka(this.getKrajnjaTacka());
+            presjek.setKrajnjaPripada(this.getKrajnjaPripada());
         } else if (this.getKrajnjaTacka() < i.getKrajnjaTacka()) {
             presjek.setKrajnjaTacka(this.getKrajnjaTacka());
             presjek.setKrajnjaPripada(this.getKrajnjaPripada());
